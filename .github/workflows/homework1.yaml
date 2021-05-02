@@ -26,7 +26,6 @@ jobs:
       working-directory: ./ml_project
       run: |
         flake8 src
-        flake8 tests
     - name: Test with pytest
       working-directory: ./ml_project
       run: |
