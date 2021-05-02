@@ -1,0 +1,5 @@
+defaults:
+  - main: main_config
+  - splitting_params: splitting_params
+  - train_params: logreg
+  - feature_params: all_features
