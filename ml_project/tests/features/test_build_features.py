@@ -18,7 +18,7 @@ from src.features import MyStandardScaler
 from tests.fake_data import generate_fake_int_matrix
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def feature_params(
     categorical_features: List[str],
     numerical_features: List[str],

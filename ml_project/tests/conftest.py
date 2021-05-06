@@ -8,37 +8,37 @@ from faker import Faker
 NUM_ROWS = 100
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def dataset_path() -> str:
     return "tests/fake_data.csv"
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def output_predictions_path() -> str:
     return "tests/test_predictions.csv"
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def serialized_model_path() -> str:
     return "tests/test_model.pkl"
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def metric_path() -> str:
     return "tests/test_metrics.json"
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def transformer_path() -> str:
     return "tests/test_transformer.pkl"
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def target_col() -> str:
     return "target"
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def categorical_features() -> List[str]:
     return [
         "sex",
@@ -52,7 +52,7 @@ def categorical_features() -> List[str]:
     ]
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def numerical_features() -> List[str]:
     return [
         "age",
@@ -63,7 +63,7 @@ def numerical_features() -> List[str]:
     ]
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def fake_pd_dataframe() -> pd.DataFrame:
     fake = Faker()
     Faker.seed(42)

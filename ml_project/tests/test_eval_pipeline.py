@@ -12,7 +12,7 @@ from train_pipeline import train_pipeline
 from tests.test_full_pipeline import train_pipeline_params
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def eval_pipeline_params(
     dataset_path: str,
     serialized_model_path: str,
@@ -28,7 +28,7 @@ def eval_pipeline_params(
     return epp
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def train_fake_data(train_pipeline_params: TrainingPipelineParams) -> NoReturn:
     train_pipeline(train_pipeline_params)
 

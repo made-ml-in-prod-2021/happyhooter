@@ -16,7 +16,7 @@ fake = Faker()
 Faker.seed(42)
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def fake_categorical_data() -> pd.DataFrame:
     arr = np.array([fake.pyint(min_value=0, max_value=5) for _ in range(100)]).astype(
         float
@@ -27,7 +27,7 @@ def fake_categorical_data() -> pd.DataFrame:
     return pd.DataFrame(data=data)
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def fake_numerical_data() -> pd.DataFrame:
     arr = np.array([fake.pyfloat(min_value=0, max_value=5) for _ in range(100)]).astype(
         float

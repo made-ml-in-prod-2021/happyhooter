@@ -11,7 +11,7 @@ from src.features import build_transformer, make_features, extract_target
 from src.models import train_model, serialize_model, deserialize_model
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def feature_params(
     categorical_features: List[str],
     numerical_features: List[str],
@@ -25,7 +25,7 @@ def feature_params(
     return fp
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def training_params() -> RFParams:
     tp = RFParams(
         model_type="RandomForestClassifier",
@@ -36,7 +36,7 @@ def training_params() -> RFParams:
     return tp
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def preprocess_data(
     dataset_path: str, feature_params: FeatureParams
 ) -> Tuple[pd.Series, pd.DataFrame]:

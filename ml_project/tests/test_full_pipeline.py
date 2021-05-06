@@ -14,7 +14,7 @@ from src.entities.main_params import MainParams
 from train_pipeline import train_pipeline
 
 
-@pytest.fixture
+@pytest.fixture(scope="package")
 def train_pipeline_params(
     fake_pd_dataframe: pd.DataFrame,
     dataset_path: str,
