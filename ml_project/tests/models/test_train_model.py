@@ -55,7 +55,6 @@ def test_train_model(
     target, transformed_features = preprocess_data
     model = train_model(transformed_features, target, training_params)
     assert isinstance(model, RandomForestClassifier)
-    assert target.shape == model.predict(transformed_features).shape
 
 
 def test_serialize_and_deserialize_model(

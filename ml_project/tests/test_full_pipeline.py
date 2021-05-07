@@ -11,7 +11,7 @@ from src.entities import (
     LogRegParams,
 )
 from src.entities.main_params import MainParams
-from train_pipeline import train_pipeline
+from src.train_pipeline import train_pipeline
 
 
 @pytest.fixture(scope="package")
@@ -44,10 +44,14 @@ def train_pipeline_params(
     return tpp
 
 
-def test_full_pipeline(train_pipeline_params: TrainingPipelineParams):
+def test_full_pipeline(
+    train_pipeline_params: TrainingPipelineParams,
+    metric_path: str,
+    serialized_model_path: str,
+):
     metrics = train_pipeline(train_pipeline_params)
     assert 0 < metrics["roc_auc_score"] <= 1
     assert 0 < metrics["accuracy_score"] <= 1
     assert 0 < metrics["f1_score"] <= 1
-    assert os.path.exists("tests/test_metrics.json")
-    assert os.path.exists("tests/test_model.pkl")
+    assert os.path.exists(metric_path)
+    assert os.path.exists(serialized_model_path)

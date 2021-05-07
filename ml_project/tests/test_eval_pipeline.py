@@ -7,8 +7,8 @@ from src.entities import (
     EvaluatingPipelineParams,
     TrainingPipelineParams,
 )
-from eval_pipeline import eval_pipeline
-from train_pipeline import train_pipeline
+from src.eval_pipeline import eval_pipeline
+from src.train_pipeline import train_pipeline
 from tests.test_full_pipeline import train_pipeline_params
 
 

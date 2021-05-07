@@ -79,7 +79,7 @@ Project Organization
     │   │
     │   ├── config.yaml    <- Главный конфиг с defaults для hydra
 
-Для запуска обучения необходимо перейти в папку `ml_project` и в командной строке написать `python train_pipeline.py`
+Для запуска обучения необходимо перейти в папку `ml_project` и в командной строке написать `python src/train_pipeline.py`
 
 --------
 
@@ -92,7 +92,7 @@ Project Organization
         └── eval_config.yaml <- Конфиг, где описываются пути до данных, модели и т.д.
    
 
-Для запуска предсказания необходимо перейти в папку `ml_project` и в командной строке написать `python eval_pipeline.py`
+Для запуска предсказания необходимо перейти в папку `ml_project` и в командной строке написать `python src/eval_pipeline.py`
 
 --------
 

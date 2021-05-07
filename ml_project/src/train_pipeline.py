@@ -76,9 +76,9 @@ def train_pipeline(
     return metrics
 
 
-@hydra.main(config_path="configs", config_name="config")
+@hydra.main(config_path="../configs", config_name="config")
 def train_pipeline_command(cfg: DictConfig):
-    os.chdir(hydra.utils.to_absolute_path("."))
+    os.chdir(hydra.utils.to_absolute_path(""))
     schema = TrainingPipelineParamsSchema()
     params = schema.load(cfg)
     train_pipeline(params)

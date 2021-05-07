@@ -49,9 +49,9 @@ def eval_pipeline(evaluating_pipeline_params: EvaluatingPipelineParams):
     return df_predicts
 
 
-@hydra.main(config_path="configs", config_name="eval_config")
+@hydra.main(config_path="../configs", config_name="eval_config")
 def eval_pipeline_command(cfg: DictConfig):
-    os.chdir(hydra.utils.to_absolute_path("."))
+    os.chdir(hydra.utils.to_absolute_path(""))
     schema = EvaluatingPipelineParamsSchema()
     params = schema.load(cfg)
     eval_pipeline(params)
