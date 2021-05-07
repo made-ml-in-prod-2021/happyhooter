@@ -4,6 +4,7 @@ from typing import NoReturn, List
 import pytest
 import pandas as pd
 import numpy as np
+from sklearn.utils.validation import check_is_fitted
 
 from src.data import read_data
 from src.features import (
@@ -55,6 +56,7 @@ def test_column_transformer(
 ) -> NoReturn:
     transformer = build_transformer(feature_params)
     transformer.fit(fake_pd_dataframe)
+    check_is_fitted(transformer)
     transformed_fake_pd_dataframe = make_features(transformer, fake_pd_dataframe)
     expected_rows = fake_pd_dataframe.shape[0]
     expected_cols = 30

@@ -4,6 +4,7 @@ from typing import NoReturn, List, Tuple
 import pytest
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.utils.validation import check_is_fitted
 
 from src.entities import FeatureParams, RFParams
 from src.data import read_data
@@ -54,6 +55,7 @@ def test_train_model(
 ) -> NoReturn:
     target, transformed_features = preprocess_data
     model = train_model(transformed_features, target, training_params)
+    check_is_fitted(model)
     assert isinstance(model, RandomForestClassifier)
 
 
